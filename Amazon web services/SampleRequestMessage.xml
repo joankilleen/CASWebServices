@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<soapenv:Envelope
+     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <soap:Header
+   xmlns:aws="http://security.amazonaws.com/doc/2007-01-01/">
+   <aws:AWSAccessKeyId>AKIAIYFLREOYORYNAQTQ</aws:AWSAccessKeyId>
+   <aws:Timestamp>2008-02-10T23:59:59Z</aws:Timestamp>
+   <aws:Signature>SZf1CHmQnrZbsrC13hCZS061ywsEXAMPLE</aws:Signature>
+</soap:Header>
+
+  <soapenv:Body>
+    <ItemSearch         xmlns="http://webservices.amazon.com/AWSECSCommerce/onca/soap">
+      <AWSAccessKeyId>AKIAIYFLREOYORYNAQTQ</AWSAccessKeyId>
+      <Request>
+        <SearchIndex>Books</SearchIndex>
+        <Keywords>Harry%20Potter</Keywords>
+      </Request>
+    </ItemSearch>
+  </soapenv:Body>
+</soapenv:Envelope>

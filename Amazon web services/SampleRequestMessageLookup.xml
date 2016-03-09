@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:ItemLookup>
+         <ns:AWSAccessKeyId>AKIAIYFLREOYORYNAQTQ</ns:AWSAccessKeyId>
+         <ns:AssociateTag>test0e5d-20</ns:AssociateTag>
+         <ns:Signature>YWEa+M+e49MtZfcASYEfcu9zyJ5xVDhEQJ7qbqVCc/Q=</ns:Signature>
+         <ns:Timestamp>2016-01-27T13:39:54Z</ns:Timestamp>
+         <ns:Request>
+            <!--Optional:-->
+            <ns:Condition>?</ns:Condition>
+            <!--Optional:-->
+            <ns:IdType>ISBN</ns:IdType>
+            <!--Optional:-->
+            <ns:MerchantId>Amazon</ns:MerchantId>
+            <!--Zero or more repetitions:-->
+            <ns:ItemId>?</ns:ItemId>
+            <!--Zero or more repetitions:-->
+            <ns:ResponseGroup>?</ns:ResponseGroup>
+            <!--Optional:-->
+            <ns:SearchIndex>?</ns:SearchIndex>
+            <!--Optional:-->
+            <ns:VariationPage>?</ns:VariationPage>
+            <!--Optional:-->
+            <ns:RelatedItemPage>?</ns:RelatedItemPage>
+            <!--Zero or more repetitions:-->
+            <ns:RelationshipType>?</ns:RelationshipType>
+            <!--Optional:-->
+            <ns:IncludeReviewsSummary>?</ns:IncludeReviewsSummary>
+            <!--Optional:-->
+            <ns:TruncateReviewsAt>?</ns:TruncateReviewsAt>
+         </ns:Request>
+      </ns:ItemLookup>
+   </soapenv:Body>
+</soapenv:Envelope>

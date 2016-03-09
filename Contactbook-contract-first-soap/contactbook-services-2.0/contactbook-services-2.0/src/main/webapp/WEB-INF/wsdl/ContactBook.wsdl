@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<definitions  name="ContactBookService"	xmlns="http://schemas.xmlsoap.org/wsdl/"
+			  targetNamespace="http://example.org/contactbook" xmlns:tns="http://example.org/contactbook"
+			  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://example.org/contactbook" schemaLocation="ContactBook.xsd"/>
+		</xsd:schema>
+	</types>
+
+	<message name="findContact">
+		<part name="parameters" element="tns:findContact"/>
+	</message>
+	<message name="findContactResponse">
+		<part name="parameters" element="tns:findContactResponse"/>
+	</message>
+	<message name="searchContacts">
+		<part name="parameters" element="tns:searchContacts"/>
+	</message>
+	<message name="searchContactsResponse">
+		<part name="parameters" element="tns:searchContactsResponse"/>
+	</message>
+	<message name="createContact">
+		<part name="parameters" element="tns:createContact"/>
+	</message>
+	<message name="createContactResponse">
+		<part name="parameters" element="tns:createContactResponse"/>
+	</message>
+	<message name="updateContact">
+		<part name="parameters" element="tns:updateContact"/>
+	</message>
+	<message name="updateContactResponse">
+		<part name="parameters" element="tns:updateContactResponse"/>
+	</message>
+	<message name="deleteContact">
+		<part name="parameters" element="tns:deleteContact"/>
+	</message>
+	<message name="NotFoundFault">
+		<part name="fault" element="tns:NotFoundFault"/>
+	</message>
+
+	<portType name="ContactBook">
+		<operation name="findContact">
+			<input message="tns:findContact"/>
+			<output message="tns:findContactResponse"/>
+			<fault message="tns:NotFoundFault" name="NotFoundFault"/>
+		</operation>
+		<operation name="searchContacts">
+			<input message="tns:searchContacts"/>
+			<output message="tns:searchContactsResponse"/>
+		</operation>
+		<operation name="createContact">
+			<input message="tns:createContact"/>
+			<output message="tns:createContactResponse"/>
+		</operation>
+		<operation name="updateContact">
+			<input message="tns:updateContact"/>
+			<output message="tns:updateContactResponse"/>
+			<fault message="tns:NotFoundFault" name="NotFoundFault"/>
+		</operation>
+		<operation name="deleteContact">
+			<input message="tns:deleteContact"/>
+		</operation>
+	</portType>
+
+	<binding name="ContactBookPortBinding" type="tns:ContactBook">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+		<operation name="findContact">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="NotFoundFault">
+				<soap:fault name="NotFoundFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="searchContacts">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="createContact">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="updateContact">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="NotFoundFault">
+				<soap:fault name="NotFoundFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="deleteContact">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+		</operation>
+	</binding>
+
+	<service name="ContactBookService">
+		<port name="ContactBookPort" binding="tns:ContactBookPortBinding">
+			<soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+		</port>
+	</service>
+
+</definitions>

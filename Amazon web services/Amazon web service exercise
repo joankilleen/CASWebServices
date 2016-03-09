@@ -1,0 +1,24 @@
+1. Target namespace = http://webservices.amazon.com/AWSECommerceService/2011-08-01
+
+2. 9 operations: Itemsearch, itemlookup, BrowseNodeLookup, SimilarityLookup, CartGet, cartcreate, cartadd, cartmodify, cartclear
+
+3.Error handling: There is no <fault> element in a message. Instead every response type has an OperationRequest element:
+			<xs:element name="OperationRequest">
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element ref="tns:HTTPHeaders" minOccurs="0"/>
+                    <xs:element name="RequestId" type="xs:string" minOccurs="0"/>
+                    <xs:element ref="tns:Arguments" minOccurs="0"/>
+                    <xs:element ref="tns:Errors" minOccurs="0"/>
+                    <xs:element name="RequestProcessingTime" type="xs:float" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:complexType>
+        	</xs:element>
+
+  	Errors is a sequence of codes and message texts.
+4. Operation style. RPC document wrapped. There's an operation tag foreach type of request.
+
+5.Port (end point address): https://webservices.amazon.com/onca/soap?Service=AWSECommerceService
+
+Paging: only up to page number 10 (regardless of how many pages are returned)
+<TotalResults>9729</TotalResults> <TotalPages>973</TotalPages>: can only enter <ItemPage> 10

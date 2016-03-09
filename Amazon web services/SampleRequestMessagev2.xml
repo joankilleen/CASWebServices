@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+   <soapenv:Header xmlns:aws="http://security.amazonaws.com/doc/2007-01-01/">
+   <aws:AWSAccessKeyId>AKIAIYFLREOYORYNAQTQ</aws:AWSAccessKeyId>
+   <aws:Timestamp>2016-01-27T17:44:11Z</aws:Timestamp>
+   <aws:Signature>MnD4wPfTKrvRQyxPfzWqqWcNjDmkoGD6eSzAFeVLrrw=</aws:Signature>
+</soapenv:Header>
+<soapenv:Body>
+      <ns:ItemSearch>
+         <ns:AssociateTag>test0e5d-20</ns:AssociateTag>
+         <ns:Request>
+            <ns:Title>JPA</ns:Title>
+            <ns:Publisher>Apress</ns:Publisher>
+            <ns:SearchIndex>Books</ns:SearchIndex>
+            <ns:ResponseGroup>ItemAttributes</ns:ResponseGroup>
+         </ns:Request>
+      </ns:ItemSearch>
+   </soapenv:Body>
+</soapenv:Envelope>

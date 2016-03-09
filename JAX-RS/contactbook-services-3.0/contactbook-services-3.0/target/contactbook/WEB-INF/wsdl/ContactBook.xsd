@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema version="1.0" xmlns="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://example.org/contactbook" xmlns:tns="http://example.org/contactbook">
+
+	<element name="findContact" type="tns:findContact"/>
+	<element name="findContactResponse" type="tns:findContactResponse"/>
+	<element name="searchContacts" type="tns:searchContacts"/>
+	<element name="searchContactsResponse" type="tns:searchContactsResponse"/>
+	<element name="createContact" type="tns:createContact"/>
+	<element name="createContactResponse" type="tns:createContactResponse"/>
+	<element name="updateContact" type="tns:updateContact"/>
+	<element name="updateContactResponse" type="tns:updateContactResponse"/>
+	<element name="deleteContact" type="tns:deleteContact"/>
+	<element name="NotFoundFault" nillable="true" type="string"/>
+
+	<complexType name="findContact">
+		<sequence>
+			<element name="id" type="long"/>
+		</sequence>
+	</complexType>
+	<complexType name="findContactResponse">
+		<sequence>
+			<element name="contact" type="tns:contact"/>
+		</sequence>
+	</complexType>
+	<complexType name="searchContacts">
+		<sequence>
+			<element name="name" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="searchContactsResponse">
+		<sequence>
+			<element name="contact" type="tns:contact" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="createContact">
+		<sequence>
+			<element name="name" type="tns:name"/>
+			<element name="phone" type="tns:phone" minOccurs="0"/>
+			<element name="email" type="tns:email" minOccurs="0"/>
+			<element name="twitter" type="string" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="createContactResponse">
+		<sequence>
+			<element name="id" type="long"/>
+		</sequence>
+	</complexType>
+	<complexType name="updateContact">
+		<sequence>
+			<element name="contact" type="tns:contact"/>
+		</sequence>
+	</complexType>
+	<complexType name="updateContactResponse">
+		<sequence/>
+	</complexType>
+	<complexType name="deleteContact">
+		<sequence>
+			<element name="id" type="long"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="contact">
+		<sequence>
+			<element name="name" type="tns:name"/>
+			<element name="phone" type="tns:phone" minOccurs="0"/>
+			<element name="email" type="tns:email" minOccurs="0"/>
+			<element name="twitter" type="string" minOccurs="0"/>
+		</sequence>
+		<attribute name="id" type="long"/>
+	</complexType>
+
+	<simpleType name="name">
+		<restriction base="string">
+			<pattern value="[A-Za-z]+([-' ][A-Za-z]+)*"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="phone">
+		<restriction base="string">
+			<pattern value="\+[0-9]+ (\([0-9]+\) )?[0-9]+([- ][0-9]+)*"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="email">
+		<restriction base="string">
+			<pattern value="[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*@[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*"/>
+		</restriction>
+	</simpleType>
+
+</schema>
